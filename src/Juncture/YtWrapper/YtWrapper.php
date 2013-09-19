@@ -6,6 +6,8 @@ class YtWrapper {
 
 	protected $yt;
 
+	private $subscriptions = new Subscriptions();
+
 	public function init($config)
 	{
 		$this->initGoogleService();
@@ -100,5 +102,10 @@ class YtWrapper {
 		}
 
 		return true;
+	}
+
+	public function subscriptions()
+	{
+		return $this->subscriptions;
 	}
 }
