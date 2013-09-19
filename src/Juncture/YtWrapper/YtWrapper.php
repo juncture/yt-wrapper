@@ -157,21 +157,36 @@ class YtWrapper {
 
 	public function get($dataTypes)
 	{
-		if (empty($this->filters))
+		switch (func_num_args())
 		{
-			throw new Exception("Subscriptions: Missing required search filters", 1);
+			case 1:
+				if (empty($this->filters))
+				{
+					throw new Exception("Subscriptions: Missing required search filters", 1);
 
+				}
+
+				$arg1 = $dataTypes;
+				$arg2 = $this->filters;
+				break;
+			case 2:
+				$arg1 = func_get_arg(0);
+				$arg2 = func_get_arg(1);
+				break;
+			default:
+				throw new Exception("Error Processing Request", 1);
 		}
-
-		$options = $this->filters;
 
 		$service = $this->yt->{$this->resource};
 
-		return $service->listSubscriptions($dataTypes, $options);
+		$method = 'list'.$this->method;
+
+		return $service->$method($arg1, $arg2);
 	}
 
 	public function subscriptions()
 	{
+		$this->method = 'Subscriptions';
 		$this->resource = 'subscriptions';
 
 		return $this;
