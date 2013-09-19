@@ -199,4 +199,40 @@ class YtWrapper {
 
 		return $this;
 	}
+
+	public function channels()
+	{
+		$this->resetFilters();
+		$this->method = 'Channels';
+		$this->resource = 'channels';
+
+		return $this;
+	}
+
+	public function playlists()
+	{
+		$this->resetFilters();
+		$this->method = 'Playlists';
+		$this->resource = 'playlists';
+
+		return $this;
+	}
+
+	public function playlistItems()
+	{
+		$this->resetFilters();
+		$this->method = 'PlaylistItems';
+		$this->resource = 'playlistItems';
+
+		return $this;
+	}
+
+	public function videos()
+	{
+		$this->resetFilters();
+		$this->method = 'Videos';
+		$this->resource = 'videos';
+
+		return $this;
+	}
 }
