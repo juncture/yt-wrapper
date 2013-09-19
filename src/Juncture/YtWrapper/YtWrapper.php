@@ -6,7 +6,7 @@ class YtWrapper {
 
 	protected $yt;
 
-	private $subscriptions = new Subscriptions();
+	private $subscriptions;
 
 	public function init($config)
 	{
@@ -106,6 +106,11 @@ class YtWrapper {
 
 	public function subscriptions()
 	{
+		if (is_null($this->subscriptions))
+		{
+			$this->subscriptions = new Subscriptions();
+		}
+
 		return $this->subscriptions;
 	}
 }
