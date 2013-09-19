@@ -28,7 +28,10 @@ class YtWrapperServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		$this->app['youtube'] = $this->app->share(function($app)
+		{
+			return new YtWrapper;
+		});
 	}
 
 	/**
@@ -38,7 +41,7 @@ class YtWrapperServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('youtube');
 	}
 
 }

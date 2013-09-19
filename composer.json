@@ -1,10 +1,10 @@
 {
     "name": "juncture/yt-wrapper",
-    "description": "",
+    "description": "Wrapper for the Youtube API",
     "authors": [
         {
             "name": "Dave Shoreman",
-            "email": "codeM0nK3Y@me.com"
+            "email": "dave@daveshoreman.com"
         }
     ],
     "require": {
