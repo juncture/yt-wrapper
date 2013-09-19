@@ -155,6 +155,13 @@ class YtWrapper {
 		return $this;
 	}
 
+	public function resetFilters()
+	{
+		$this->filters = [];
+
+		return $this;
+	}
+
 	public function get($dataTypes)
 	{
 		switch (func_num_args())
@@ -186,6 +193,7 @@ class YtWrapper {
 
 	public function subscriptions()
 	{
+		$this->resetFilters();
 		$this->method = 'Subscriptions';
 		$this->resource = 'subscriptions';
 
